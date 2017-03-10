@@ -74,7 +74,6 @@ function download_and_install_ibm_db() {
 
   echo "Installing ibm_db2 ..."
   pecl install ibm_db2
-  pecl install pdo
   pecl install pdo_ibm
 }
   
@@ -106,7 +105,7 @@ cp $LP_DIR/php.tar.gz .
 tar -xzf php.tar.gz
 
 mv $PHP_PATH/libphp5.so $APACHE_PATH/modules
-
+cp $LP_DIR/conf/pdo.so php/lib/php/extensions/no-debug-non-zts-20121212
 # update config files
 cp $LP_DIR/conf/httpd.conf $APACHE_PATH/conf
 cp $LP_DIR/conf/php.ini php
