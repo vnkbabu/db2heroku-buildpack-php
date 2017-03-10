@@ -83,7 +83,8 @@ function download_and_install_ibm_db() {
   ./configure --with-pdo-ibm=$BUILD_DIR/clidriver
   make 
   make install
-  cp modules/pdo_ibm.so php/lib/php/extensions/no-debug-non-zts-20121212/
+  ls /app/php/lib/php/extensions/no-debug-non-zts-20121212/
+  ldd /app/php/lib/php/extensions/no-debug-non-zts-20121212/pdo_ibm.so
   php -m
 }
   
