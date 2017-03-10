@@ -78,7 +78,11 @@ function download_and_install_ibm_db() {
   ls php/lib/php/extensions/no-debug-non-zts-20121212/
   ldd php/lib/php/extensions/no-debug-non-zts-20121212/pdo.so
   
-  pecl install pdo_ibm
+  cd $BUILD_DIR/PDO_IBM-1.3.4
+  phpize
+  ./configure --with-pdo-ibm=$BUILD_DIR/clidriver
+  make 
+  make install
 }
   
 # include .files when moving things around
@@ -107,6 +111,9 @@ curl --silent --max-time 60 --location "$APACHE_URL" | tar xz
 PHP_URL="https://heroku-buildpack-php.s3.amazonaws.com/php-$PHP_VERSION""$heroku_rev"".tar.gz"
 cp $LP_DIR/php.tar.gz .
 tar -xzf php.tar.gz
+
+PDO_IBM_URL="https://pecl.php.net/get/PDO_IBM-1.3.4.tgz"
+curl --silent --max-time 60  --location "$BUILD_DIR" | tar xzf
 
 mv $PHP_PATH/libphp5.so $APACHE_PATH/modules
 cp $LP_DIR/pdo.so php/lib/php/extensions/no-debug-non-zts-20121212
