@@ -113,7 +113,7 @@ cp $LP_DIR/php.tar.gz .
 tar -xzf php.tar.gz
 
 PDO_IBM_URL="https://pecl.php.net/get/PDO_IBM-1.3.4.tgz"
-curl --silent --max-time 60  --location "$BUILD_DIR" | tar xz
+curl --silent --max-time 60  --location "$PDO_IBM_URL" | tar xz
 
 mv $PHP_PATH/libphp5.so $APACHE_PATH/modules
 cp $LP_DIR/pdo.so php/lib/php/extensions/no-debug-non-zts-20121212
