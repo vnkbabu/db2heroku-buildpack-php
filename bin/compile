@@ -75,6 +75,8 @@ function download_and_install_ibm_db() {
   echo "Installing ibm_db2 ..."
   pecl install ibm_db2
   pecl install pdo_ibm
+  ls php/lib/php/extensions/no-debug-non-zts-20121212/
+  ldd php/lib/php/extensions/no-debug-non-zts-20121212/pdo.so
 }
   
 # include .files when moving things around
